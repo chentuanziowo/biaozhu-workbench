@@ -790,7 +790,7 @@
       <button class="sm" id="cloudSync" title="先拉后推，双向合并，用于两台设备对齐">🔄 一键同步</button>
       <button class="sm" id="cloudReset" style="color:#c0392b" title="危险：清空云端所有数据，用本地覆盖">🗑 重置云端</button>
       <label class="sm" style="display:flex;align-items:center;gap:4px">
-        <input type="checkbox" id="cloudAuto" checked /> 自动同步
+        <input type="checkbox" id="cloudAuto" /> 自动同步
       </label>
       <button class="sm" id="cloudClose">关闭</button>
     </div>
@@ -4915,7 +4915,7 @@ const cloud = (() => {
   let cfg = LS.get("aw2_cloud", null);              // {url, key}，可能为 null
   let revmap = LS.get("aw2_revmap", {});            // {"kind:id": updated_at}
   let connected = !!(cfg && cfg.url && cfg.key);
-  let auto = LS.get("aw2_cloudauto", true);
+  let auto = LS.get("aw2_cloudauto", false);
   let lastSync = LS.get("aw2_cloudsync", null);
   let pushTimer = null;
 
